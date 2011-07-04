@@ -34,7 +34,7 @@ public class Interpreter implements IParse, IInitialSetup {
    * Internal helper class to read integer from stream until non-digit We need
    * class because of lack of pass-by-ref in java
    */
-  class ReadParameterFormStream {
+  class ReadParameterFromStream {
     String _parameter;
     char _cmd;
     char _subfamily;
@@ -613,24 +613,16 @@ public class Interpreter implements IParse, IInitialSetup {
   private HPGLParser _hpglParser;
   private IParser _activeParser;
 
-  ReadParameterFormStream _paramReader;
+  ReadParameterFromStream _paramReader;
 
   public Interpreter() throws IOException {
     _pcl5Parser = new PCL5Parser();
     _pjlParser = new PJLParser();
     _hpglParser = new HPGLParser();
 
-    _paramReader = new ReadParameterFormStream();
+    _paramReader = new ReadParameterFromStream();
   }
 
-  // ==================================================================
-  // IParse
-  // ==================================================================
-  /*
-   * (non-Javadoc)
-   * com.ccginc.pcl5.PCL5Interpreter.IParse#Parse(java.io.InputStream,
-   * com.ccginc.pcl5.PCL5Interpreter.IPrint)
-   */
   public void parse(InputStream in, IPrint print) throws IOException {
     _activeParser = _pcl5Parser;
 
