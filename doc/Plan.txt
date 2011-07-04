@@ -1,0 +1,27 @@
+Main class external interfaces
+
+Internal printer calculates with 3600 DPI resolution
+Highest possible print resolution is 720 DPI
+All external interfaces uses 72 DPI (float) resolution
+
+IInitialSetup
+  void set/getPrinterType(printerType) // 24/9 pins
+  void set/getDefaultPageLength(pageLength) // in inches
+  void set/getAutoLF(bool)
+  void set/getInternationalCharacterSet(int)
+  
+IPrinterState
+  Font getCurrentFont()
+  Color getCurrentColor()
+  
+IPrint (callback interface)
+  void PageSize((float w, float h)
+  void PrintText(float x, float y, string, IPrinterState)
+  void PrintBitmap(float x, float y, BufferedImage, IPrinterState)
+  
+IParse
+  void Parse(InputStream, IPrint)
+  
+For test there will be 2  IPrint implementation
+- text file output
+- AWT Image output

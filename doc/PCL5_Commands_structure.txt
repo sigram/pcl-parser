@@ -1,0 +1,67 @@
+PCL5 commands structure for parser
+
+Normal commands
+	char - CR, LF
+Esc commands 
+	[Esc]char - E, 9, =
+Extended Esc
+	[Esc][family][subfamily]#[command][data]
+		family - %, &, (, ), *  
+		subfamily - any small char 
+		# - 0 or more digits +/-
+		cmd - any big letter or @ (look exceptions)
+		data - optional data stream
+Exceptions
+	[Esc](#X - Font Selection by ID
+	[Esc])#X
+	[Esc]%#B - Enter HP-GL/2 Mode
+	-[Esc](3@.....
+	-[Esc])3@.....
+	-[Esc]&d@
+
+[Esc](#M - Symbol Set
+[Esc]%-#X
+[Esc]&b#W......
+[Esc]E
+[Esc]&l#X
+[Esc]&a#G
+[Esc]&u#D
+[Esc]&a#P
+[Esc]&c#T
+[Esc]&t#P
+[Esc]9
+[Esc]&k#H
+[Esc]*p#X
+[Esc]=
+[Esc]&f#S
+[Esc](#X
+[Esc])#X
+[Esc](3@.....
+[Esc])3@.....
+[Esc]&d@
+[Esc](s#P
+[Esc])s#P
+[Esc]&p#X
+[Esc]&d#D
+[Esc]*c#D
+[Esc]&n#W........
+[Esc](f#W.....
+[Esc]&f#X
+[Esc]*v#N
+[Esc]*l#O
+[Esc]*c#W.........
+[Esc]*t#R
+[Esc]*r#F
+[Esc]*b#Y
+[Esc]*rB
+[Esc]*rC
+[Esc]*v#W.....
+[Esc]*v#A
+[Esc]&p#S
+[Esc]*m#W
+[Esc]*l#W.....
+[Esc]*i#W......
+[Esc]&b#M
+[Esc]*s#T
+[Esc]&r#F
+
